@@ -25,11 +25,11 @@ class Engine:
             action.perform(engine=self, entity=self.player)
 
     def render(self, console: Console, context: Context) -> None:
+        console.clear()
+
         self.game_map.render(console)
 
         for entity in self.entities:
             console.print(entity.x, entity.y, entity.char, fg=entity.color)
 
         context.present(console)
-
-        console.clear()
